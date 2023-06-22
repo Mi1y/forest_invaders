@@ -116,8 +116,8 @@ def wyswietl_top_wyniki():
     global top_10_wynikow
     ekran.fill((0, 0, 0))
     ekran.blit(tlo, (0, 0))
-    tekst_top = czcionka.render("Top 10 wyników:", True, (255, 255, 255))
-    ekran.blit(tekst_top, (szerokosc / 2 - 100, 50))
+    tekst_top = czcionka.render("Top 10 najlepszych wyników:", True, (255, 255, 255))
+    ekran.blit(tekst_top, (szerokosc / 2 - 225, 50))
 
     top_10_wynikow = odczytaj_top_score()  # Przypisanie wartości zwracanej przez funkcję
     
@@ -299,6 +299,9 @@ while gra_aktywna:
             zapisz_wynik(wynik)
             koniec_gry()
             break
+        
+        #Trudność gry (Przeciwnicy się ruszają! wartość 0 sprawi że nie będą się ruszać)
+        wrog_x[i] += wrog_x_change[i]
 
         # Ograniczenia planszy dla wroga
         if wrog_x[i] <= 0:
